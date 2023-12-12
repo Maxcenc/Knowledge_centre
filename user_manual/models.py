@@ -12,3 +12,8 @@ class UserManual(models.Model):
     created_at = models.DateField()
     updated_at = models.DateField()
     created_by = models.CharField(max_length=50)
+
+class Categories(models.Model):
+    file_type = models.CharField(max_length=100)
+    cat_1 = models.CharField(max_length=100)
+    cat_2 = models.CharField(max_length=100)

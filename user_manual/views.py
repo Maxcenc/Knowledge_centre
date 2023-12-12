@@ -4,6 +4,8 @@ from datetime import datetime
 import json, os
 from django.conf import settings
 
+from utils.helper_functions import get_kc_dict
+
 from .models import UserManual
 
 # Create your views here.
@@ -69,6 +71,34 @@ def view_files(request):
     context = json.dumps(files_list, default=str)
     
     return render(request, 'knowledge-centre/view_files.html', {"context": context})
+
+
+def view_by_category(request):
+    
+    files = UserManual.objects.all()
+    
+    print("files: ", files)
+    new_dict = get_kc_dict(files)
+    print("new_dict: ", new_dict)
+    
+    # for file in files:
+    #     new_file = {
+    #         "id": file.id,
+    #         "filename": file.filename,
+    #         "filetype": file.file_type,
+    #         "section": file.section,
+    #         "subcategory1": file.sub_category_1,
+    #         "subcategory2": file.sub_category_2,
+    #         "region": file.region,
+    #         "created_by": file.created_by,
+    #         "created_at": file.created_at,
+    #     }
+    #     files_list.append(new_file)
+    
+    # context = json.dumps(files_list, default=str)
+    
+    return render(request, 'knowledge-centre/view_myfiles.html', {"context": new_dict})
+
 
 def view_myfiles(request):
     
