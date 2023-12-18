@@ -14,6 +14,35 @@ class UserManual(models.Model):
     created_by = models.CharField(max_length=50)
 
 class Categories(models.Model):
-    file_type = models.CharField(max_length=100)
-    cat_1 = models.CharField(max_length=100)
-    cat_2 = models.CharField(max_length=100)
+   file_type = models.CharField(max_length=100)
+   cat_1 = models.CharField(max_length=100)
+   cat_2 = models.CharField(max_length=100)
+
+class Filetype(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class First_Category(models.Model):
+    file_type  = models.ForeignKey (Filetype,on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class Secondary_Category(models.Model):
+    file  = models.ForeignKey (Filetype,on_delete=models.CASCADE,related_name='category')
+    category  = models.ForeignKey (First_Category,on_delete=models.CASCADE,related_name='file')
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+    
+class My_model(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
