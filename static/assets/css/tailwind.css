@@ -836,14 +836,6 @@ select {
   top: 0px;
 }
 
-.top-1 {
-  top: 0.25rem;
-}
-
-.bottom-0 {
-  bottom: 0px;
-}
-
 .z-10 {
   z-index: 10;
 }
@@ -1038,6 +1030,10 @@ select {
   width: 50%;
 }
 
+.w-28 {
+  width: 7rem;
+}
+
 .w-4 {
   width: 1rem;
 }
@@ -1088,10 +1084,6 @@ select {
 
 .border-collapse {
   border-collapse: collapse;
-}
-
-.origin-bottom {
-  transform-origin: bottom;
 }
 
 .origin-top {

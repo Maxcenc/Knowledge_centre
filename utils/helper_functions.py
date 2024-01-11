@@ -258,6 +258,11 @@ def get_kc_dict(kcs):
             }
         ],
         "publication": [],
+        "standards": [],
+        "specifications": [],
+        "drawings": [],
+        "other_docs": [],
+        "drone_tech": [],
         "policies": [
             {
                 "commercial": [],
@@ -266,6 +271,19 @@ def get_kc_dict(kcs):
                 "finance": [],
                 "ict": [],
                 "risk": []
+            }
+        ],
+        "prince2": [
+            {
+                "risk_management": [],
+                "communication_management": [],
+                "quality_management": [],
+                "configuration_management": [],
+                "risk_register": [],
+                "lessons_learnt": [],
+                "quality_register": [],
+                "configuration_item": [],
+                "current_projects": []
             }
         ],
         "engineering": [
@@ -449,6 +467,80 @@ def get_kc_dict(kcs):
                 })
         if kc.file_type == "PUBLICATIONS":
                 file_dict['publication'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+        if kc.file_type == "STANDARDS":
+                file_dict['standards'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+        if kc.file_type == "SPECIFICATIONS":
+                file_dict['specifications'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+        if kc.file_type == "DRAWINGS":
+                file_dict['drawings'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+        
+        if kc.file_type == "OTHER EXTERNAL DOCUMENTS":
+                file_dict['other_docs'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+        if kc.file_type == "DRONE TECHNOLOGY":
+                file_dict['drone_tech'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+        if kc.file_type == "PRINCE2 CENTRE OF EXCELLENCY":
+            
+            if kc.sub_category_1 == "Risk Management Strategy":
+                
+                file_dict['prince2'][0]['risk_management'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+            if kc.sub_category_1 == "Communication Management Strategy":
+                file_dict['prince2'][0]['communication_management'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+            if kc.sub_category_1 == "Quality Management Strategy":
+                file_dict['prince2'][0]['quality_management'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+            if kc.sub_category_1 == "Configuration Management Strategy":
+                file_dict['prince2'][0]['configuration_management'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+            if kc.sub_category_1 == "Risk Register Template":
+                file_dict['prince2'][0]['risk_register'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+            if kc.sub_category_1 == "Lessons Learnt from Previous Projects":
+                file_dict['prince2'][0]['lessons_learnt'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+            if kc.sub_category_1 == "Quality Register Template":
+                file_dict['prince2'][0]['quality_register'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+            if kc.sub_category_1 == "Configuration Item Record Template":
+                file_dict['prince2'][0]['configuration_item'].append({
+                    "id": kc.id,
+                    "filename": kc.filename
+                })
+            if kc.sub_category_1 == "Current Projects":
+                file_dict['prince2'][0]['current_projects'].append({
                     "id": kc.id,
                     "filename": kc.filename
                 })
